@@ -1,0 +1,97 @@
+///////////////////////
+// DEFINE PARAMETERS //
+///////////////////////
+
+// Parameters for Single Molecule Sorting
+params.SortReads=false
+params.TFBSs="" // full path to .rds object of TFBSs as GRanges
+
+///////////////////////////
+// DEFINE INPUT CHANNELS //
+///////////////////////////
+
+if ( params.SortReads == true ){
+
+	bam_Sorting = Channel.value("placeholder")
+	bai_Sorting = Channel.value("placeholder")
+
+} else {
+
+	bam_Sorting = Channel.empty()
+	bai_Sorting = Channel.empty()
+
+}
+
+//////////////////////
+// DEFINE PROCESSES //
+//////////////////////
+
+// WHATEVER THIS IS NOT FINISHED
+process MethylationDistributionCorrelation {
+
+	executor 'slurm'
+	cpus 1
+	time '6h'
+	memory '50GB'
+	clusterOptions "--qos=high -A Krebs -o ${Slurm_reports_dir}/slurm.%N.%j.out -e ${Slurm_reports_dir}/slurm.%N.%j.err"
+
+	tag "As an additional QC, produce methylation distribution correlation plot"
+	publishDir "${params.Publish_dir}/CallContextMethylation_QCs", mode: 'copy', pattern: "*.pdf"
+
+	// This time surprise surprise the input is really coming from the previous process
+	// although we don't explicitly need to pass it to the R script
+	input:
+	path("*.rds") from CallMethQC
+
+	output:
+	path("*.pdf")
+
+	"""
+	mkdir -p "${params.Publish_dir}/CallContextMethylation_QCs"
+
+	module load R-bundle-Bioconductor-GBCS/3.10-foss-2019b-R-3.6.2
+	Rscript
+	"""
+
+}
+
+
+// NEED TO FIX PASSING ARGS IN SORT_TF.R SCRIPT AND TEST. AUTOMATE CLUSTERS  VS SINGLE SITES
+// GENERAL: SINGLE AND VS PAIRED END ARGM
+
+process SortReads {
+
+	executor 'slurm'
+	cpus 1
+	time '10h'
+	memory '200GB'
+	clusterOptions "--qos=high -A Krebs -o ${Slurm_reports_dir}/slurm.%N.%j.out -e ${Slurm_reports_dir}/slurm.%N.%j.err"
+
+	tag "Sort single molecules"
+	publishDir "${params.Publish_dir}/SortedReads", mode: 'copy', pattern: "*.rds"
+
+	when:
+	params.FootprintingQConly == false
+
+	// input is just mock to wait for collection, truly using input from publishDir
+	input:
+	val(bam) from bam_Sorting.collect()
+	val(bai) from bai_Sorting.collect()
+
+	output:
+	path("*.rds")
+
+	"""
+	echo "FileName  SampleName" > QuasR_input_aln_"${params.NGS_dir}".txt
+	if [[ "${params.Deduplicate}" == true ]]; then
+		bash /g/krebs/barzaghi/bash_scripts/MakeQuasRInput.sh "${params.Publish_dir}/aln_mrg_ddup" >> QuasR_input_aln_"${params.NGS_dir}".txt
+	else
+		bash /g/krebs/barzaghi/bash_scripts/MakeQuasRInput.sh "${params.Publish_dir}/aln" >> QuasR_input_aln_"${params.NGS_dir}".txt
+	fi
+
+	mkdir -p "${params.Publish_dir}/SortedReads"
+	module load R-bundle-Bioconductor-GBCS/3.10-foss-2019b-R-3.6.2
+	Rscript /g/krebs/barzaghi/bash_scripts/KrebsLabRepo/Soenmezer_2020_SMF/single_molecule_TF_call/sort_TF_states.r QuasR_input_aln_"${params.NGS_dir}".txt "${params.TFBSs}"
+	"""
+
+}

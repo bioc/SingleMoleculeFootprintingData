@@ -1,0 +1,8 @@
+/g/krebs/barzaghi/Rscripts/R_package/SingleMoleculeFootprintingData/.Rbuildignore="5C3A5DE8"
+/g/krebs/barzaghi/Rscripts/R_package/SingleMoleculeFootprintingData/R/hello.R="8681E408"
+/g/krebs/barzaghi/Rscripts/R_package/SingleMoleculeFootprintingData/inst/extdata/metadata.csv="CD1F7D77"
+/g/krebs/barzaghi/Rscripts/R_package/SingleMoleculeFootprintingData/inst/scripts/make-data.R="A6EB1A79"
+/g/krebs/barzaghi/Rscripts/R_package/SingleMoleculeFootprintingData/inst/scripts/make-metadata.R="CB9E1E8D"
+/g/krebs/barzaghi/Rscripts/R_package/SingleMoleculeFootprintingData/vignettes/SingleMoleculeFootprintingData.Rmd="14B5F287"
+/g/krebs/barzaghi/bash_scripts/SMF_processing.nf="2E1BA15D"
+/g/krebs/barzaghi/bash_scripts/SMF_processing_STAGING.nf="11A19D34"
