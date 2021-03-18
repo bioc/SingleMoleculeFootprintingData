@@ -37,3 +37,7 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# misc
+E-MTAB-9123.sdrf.txt
+E-MTAB-9033.sdrf.txt

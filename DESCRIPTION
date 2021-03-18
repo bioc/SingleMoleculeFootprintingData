@@ -1,15 +1,38 @@
 Package: SingleMoleculeFootprintingData
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Data supporting the SingleMoleculeFootprinting pkg
+Version: 0.0.1
+Author: c(
+    person(given = "Guido",
+           family = "Barzaghi",
+           role = c("aut", "cre"),
+           email = "guido.barzaghi@embl.de",
+           comment = c(ORCID = "0000-0001-6066-3920")),
+    person(given = "Arnaud",
+           family = "Krebs",
+           role = c("aut"),
+           email = "arnaud.krebs@embl.de",
+           comment = c(ORCID = "0000-0001-7999-6127")),
+    person(given = "Mike",
+           family = "Smith",
+           role = c("ctb"),
+           email = "mike.smith@embl.de",
+           comment = c(ORCID = "0000-0002-7800-3848"))
+    )
+Maintainer: Guido Barzaghi <guido.barzaghi@embl.de>
+Description: This Data package contains r objcets necessary to run some of the
+    functions from the SingleMoleculeFootprinting package.
+biocViews: 
+    ExperimentHub, ExperimentData, SequencingData
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Imports:
+    ExperimentHub,
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    QuasR,
+    GenomicRanges,
+    BSgenome.Mmusculus.UCSC.mm10
 VignetteBuilder: knitr
