@@ -34,11 +34,11 @@ Metadata_DF =
              RDataClass = c("character", "character", "GRanges", "matrix", "GRanges"),
              DispatchClass = c("FilePath", "FilePath", "Rds", "Rds", "Rds"),
              Location_Prefix = c("", "", "", "", ""), #<------------
-             RDataPath = c("SingleMoleculeFootprintingData/example_NRF1pair_amplicon.bam",
-                           "SingleMoleculeFootprintingData/example_NRF1pair_amplicon.bam.bai",
+             RDataPath = c("SingleMoleculeFootprintingData/NRF1pair.bam",
+                           "SingleMoleculeFootprintingData/NRF1pair.bam.bai",
                            "SingleMoleculeFootprintingData/EnrichmentRegions_mm10.rds",
-                           "SingleMoleculeFootprintingData/ReducedRefMat.rds",
-                           "SingleMoleculeFootprintingData/AllCreduced.rds"), #<------------
+                           "SingleMoleculeFootprintingData/ReferenceMethylation.rds",
+                           "SingleMoleculeFootprintingData/AllCs.rds"), #<------------
              Tags = c("", "", "", "", ""))
 
 #final data are written out with
