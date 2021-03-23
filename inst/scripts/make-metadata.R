@@ -33,12 +33,12 @@ Metadata_DF =
              Maintainer = c("Guido Barzaghi <guido.barzaghi@embl.de>", "Guido Barzaghi <guido.barzaghi@embl.de>", "Guido Barzaghi <guido.barzaghi@embl.de>", "Guido Barzaghi <guido.barzaghi@embl.de>", "Guido Barzaghi <guido.barzaghi@embl.de>"),
              RDataClass = c("character", "character", "GRanges", "matrix", "GRanges"),
              DispatchClass = c("FilePath", "FilePath", "Rds", "Rds", "Rds"),
-             Location_Prefix = c("", "", "", "", ""), #<------------
+             Location_Prefix = c("", "", "", "", ""),
              RDataPath = c("SingleMoleculeFootprintingData/NRF1pair.bam",
                            "SingleMoleculeFootprintingData/NRF1pair.bam.bai",
                            "SingleMoleculeFootprintingData/EnrichmentRegions_mm10.rds",
                            "SingleMoleculeFootprintingData/ReferenceMethylation.rds",
-                           "SingleMoleculeFootprintingData/AllCs.rds"), #<------------
+                           "SingleMoleculeFootprintingData/AllCs.rds"),
              Tags = c("", "", "", "", ""))
 
 #final data are written out with
