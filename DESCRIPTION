@@ -2,7 +2,7 @@ Package: SingleMoleculeFootprintingData
 Type: Package
 Title: Data supporting the SingleMoleculeFootprinting pkg
 Version: 0.0.1
-Author: c(
+Authors@R: c(
     person(given = "Guido",
            family = "Barzaghi",
            role = c("aut", "cre"),
@@ -19,9 +19,10 @@ Author: c(
            email = "mike.smith@embl.de",
            comment = c(ORCID = "0000-0002-7800-3848"))
     )
-Maintainer: Guido Barzaghi <guido.barzaghi@embl.de>
 Description: This Data package contains r objcets necessary to run some of the
-    functions from the SingleMoleculeFootprinting package.
+    functions from the SingleMoleculeFootprinting package. 
+    SingleMoleculeFootprinting is an R package providing functions 
+    to analyze Single Molecule Footprinting (SMF) data.
 biocViews: 
     ExperimentHub, ExperimentData, SequencingData
 License: GPL-3
@@ -29,6 +30,7 @@ Encoding: UTF-8
 LazyData: true
 Imports:
     ExperimentHub,
+    utils
 Suggests: 
     knitr,
     rmarkdown,
@@ -36,3 +38,4 @@ Suggests:
     GenomicRanges,
     BSgenome.Mmusculus.UCSC.mm10
 VignetteBuilder: knitr
+RoxygenNote: 7.1.1
