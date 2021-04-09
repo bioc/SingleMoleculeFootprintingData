@@ -1,7 +1,7 @@
 Package: SingleMoleculeFootprintingData
 Type: Package
 Title: Data supporting the SingleMoleculeFootprinting pkg
-Version: 0.99.3
+Version: 0.99.4
 Authors@R: c(
     person(given = "Guido",
            family = "Barzaghi",
@@ -33,9 +33,6 @@ Imports:
     utils
 Suggests: 
     knitr,
-    rmarkdown,
-    QuasR,
-    GenomicRanges,
-    BSgenome.Mmusculus.UCSC.mm10
+    rmarkdown
 VignetteBuilder: knitr
 RoxygenNote: 7.1.1
