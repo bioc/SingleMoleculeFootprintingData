@@ -1,7 +1,7 @@
 Package: SingleMoleculeFootprintingData
 Type: Package
 Title: Data supporting the SingleMoleculeFootprinting pkg
-Version: 0.99.4
+Version: 0.99.5
 Authors@R: c(
     person(given = "Guido",
            family = "Barzaghi",
