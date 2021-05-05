@@ -19,10 +19,13 @@ Authors@R: c(
            email = "mike.smith@embl.de",
            comment = c(ORCID = "0000-0002-7800-3848"))
     )
-Description: This Data package contains r objcets necessary to run some of the
-    functions from the SingleMoleculeFootprinting package. 
-    SingleMoleculeFootprinting is an R package providing functions 
-    to analyze Single Molecule Footprinting (SMF) data.
+Description: This Data package contains data objcets relevanat 
+    for the SingleMoleculeFootprinting package. More specifically, 
+    it contains one example of aligned sequencing data (.bam & .bai) 
+    necessary to run the SingleMoleculeFootprinting vignette. 
+    Additionally, we provide data that are essential for some 
+    functions to work correctly such as BaitCapture() and 
+    SampleCorrelation().
 biocViews: 
     ExperimentHub, ExperimentData, SequencingData
 License: GPL-3
